@@ -1,0 +1,144 @@
+body {
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-title, .menu-title-mobile {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    display: none;
+}
+
+.menu-title {
+    text-align: center;
+    font-size: 175%;
+}
+
+.menu-title-mobile {
+    font-size: 140%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 40px;
+}
+
+.row {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.col {
+    float: left;
+    position: relative;
+    padding: 20px;
+}
+
+.menu-section {
+    border: 1px solid #000;
+    background-color: #d9d9d9;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 170px;
+    overflow: hidden;
+}
+
+.menu-section-title, .menu-section-title-mobile {
+    display: none;
+    font-size: 125%;
+}
+
+.menu-section-title {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 2px 30px 2px 30px;
+    border: 1px solid #000;
+}
+
+.menu-section-title-mobile {
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.menu-section-title-1 {
+    background-color: rgb(238, 144, 144);
+}
+
+.menu-section-title-2 {
+    background-color: rgb(160, 238, 144);
+}
+
+.menu-section-title-3 {
+    background-color: rgb(144, 192, 238);
+}
+
+.menu-content {
+    margin-top: 28px;
+    height: 140px;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.menu-content:hover {
+    overflow-y: auto;
+    cursor: ns-resize;
+}
+
+/** Desktop view style **/
+@media (min-width: 992px) {
+    .menu-title, .menu-section-title {
+        display: block;
+    }
+
+    .col-lg-4 {
+        width: 33.3%;
+    }
+}
+
+/** Tablet view style **/
+@media (min-width: 768px) and (max-width: 991px) {
+    .menu-title, .menu-section-title {
+        display: block;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+/** Mobile view style **/
+@media (max-width: 767px) {
+    .menu-title-mobile, .menu-section-title-mobile {
+        display: block;
+        max-height: 28%;
+        overflow: hidden;
+    }
+
+    .menu-section-title-mobile:hover {
+        overflow-y: auto;
+    }
+
+    .menu-content {
+        position: relative;
+        text-align: justify;
+        margin-top: 0px;
+        max-height: 72%;
+    }
+
+    .col-sm-12 {
+        width: 100%;
+    }
+}
