@@ -123,8 +123,11 @@ body {
 @media (max-width: 767px) {
     .menu-title-mobile, .menu-section-title-mobile {
         display: block;
-        max-height: 28%;
         overflow: hidden;
+    }
+
+    .menu-section-title-mobile {
+        height: 48px;
     }
 
     .menu-section-title-mobile:hover {
@@ -135,7 +138,7 @@ body {
         position: relative;
         text-align: justify;
         margin-top: 0px;
-        max-height: 72%;
+        height: 120px;
     }
 
     .col-sm-12 {
