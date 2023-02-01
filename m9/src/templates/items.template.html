@@ -1,0 +1,19 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Menu Item</th>
+            <th>Description</th>
+            <th>Price (Large)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <td>{{ item.name }} ({{ item.short_name }})</td>
+            <td>
+                <span ng-if="item.description">{{ item.description }}</span>
+                <span ng-if="!item.description"><i>No description available</i></span>
+            </td>
+            <td>{{ item.price_large | currency }}</td>
+        </tr>
+    </tbody>
+</table>

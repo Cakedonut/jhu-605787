@@ -1,0 +1,5 @@
+<a
+    ng-repeat="item in $ctrl.categories"
+    class="btn btn-block btn-primary"
+    ui-sref="items({categoryShortName: item.short_name})"
+>{{ item.name }}</a>
