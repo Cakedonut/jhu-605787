@@ -1,0 +1,25 @@
+<div class="container">
+    <h2 class="text-center">My Info</h2>
+    <div class="panel panel-default">
+        <div ng-if="!$ctrl.userRegistered" class="panel-body">
+            Not Signed Up Yet. <a ui-sref="public.signup">Sign Up Now!</a>
+        </div>
+        <div ng-if="$ctrl.userRegistered" class="panel-body">
+            <b>Name: </b> {{ $ctrl.userInfo.firstName }} {{ $ctrl.userInfo.lastName }}<br>
+            <b>Email: </b> {{ $ctrl.userInfo.email }}<br>
+            <b>Phone: </b> {{ $ctrl.userInfo.phone }}<br><br>
+            
+            <b>Favorite menu item: </b>
+            <div ng-if="$ctrl.favoriteMenuItemData" class="row">
+                <div class="col-lg-3">
+                    <img src="{{ $ctrl.favoriteMenuItemData.image }}" class="img-responsive">
+                </div>
+                <div class="col-lg-9">
+                    <b>{{ $ctrl.favoriteMenuItemData.name }} ({{ $ctrl.favoriteMenuItemData.short_name }})</b><br>
+                    {{ $ctrl.favoriteMenuItemData.description }} 
+                </div>
+            </div>
+            <span ng-if="!$ctrl.favoriteMenuItemData"> No favorite menu item to show</span>
+        </div>  
+    </div>
+</div>

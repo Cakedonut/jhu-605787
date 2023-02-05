@@ -1,0 +1,95 @@
+<div class="container">
+    <h2 class="text-center">Sign Up</h2>
+    <form class="signup-form" name="form" novalidate>
+        <p class="text-center">Use the form below to sign up for our newsletter!</p>
+        <div class="form-group"
+            ng-class="{ 
+                'has-error has-feedback': form.firstName.$invalid && form.firstName.$touched,
+                'has-success has-feedback': form.firstName.$valid && form.firstName.$touched,
+            }">
+            <label class="control-label">First name</label>
+            <input
+                type="text"
+                class="form-control"
+                name="firstName"
+                ng-model="user.firstName"
+                required>
+            <span ng-show="form.firstName.$valid && form.firstName.$touched" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span ng-show="form.firstName.$invalid && form.firstName.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+        <div class="form-group"
+            ng-class="{ 
+                'has-error has-feedback': form.lastName.$invalid && form.lastName.$touched,
+                'has-success has-feedback': form.lastName.$valid && form.lastName.$touched,
+            }">
+            <label class="control-label">Last name</label>
+            <input
+                type="text"
+                class="form-control"
+                name="lastName"
+                ng-model="user.lastName"
+                required>
+            <span ng-show="form.lastName.$valid && form.lastName.$touched" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span ng-show="form.lastName.$invalid && form.lastName.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+        <div class="form-group"
+            ng-class="{ 
+                'has-error has-feedback': form.email.$invalid && form.email.$touched,
+                'has-success has-feedback': form.email.$valid && form.email.$touched,
+            }">
+            <label class="control-label">Email</label>
+            <input
+                type="email"
+                class="form-control"
+                name="email"
+                ng-model="user.email"
+                required>
+            <span ng-show="form.email.$valid && form.email.$touched" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span ng-show="form.email.$invalid && form.email.$touched" class="help-block">Please enter a valid email address (format email@domain)</span>
+            <span ng-show="form.email.$invalid && form.email.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+        <div class="form-group"
+            ng-class="{ 
+                'has-error has-feedback': form.phone.$invalid && form.phone.$touched,
+                'has-success has-feedback': form.phone.$valid && form.phone.$touched,
+            }">
+            <label class="control-label">Phone number</label>
+            <input
+                type="tel"
+                class="form-control"
+                name="phone"
+                ng-model="user.phone"
+                placeholder="###-###-####"
+                pattern="(\d{3})-(\d{3})-(\d{4})"
+                required>
+            <span ng-show="form.phone.$valid && form.phone.$touched" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span ng-show="form.phone.$invalid && form.phone.$touched" class="help-block">Please enter a valid phone number (format ###-###-####)</span>
+            <span ng-show="form.phone.$invalid && form.phone.$touched" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+        <div class="form-group" 
+            ng-class="{ 
+                'has-error has-feedback': form.favoriteMenuItem.$invalid && (form.favoriteMenuItem.$touched || form.favoriteMenuItem.$error.favoriteMenuItem),
+                'has-success has-feedback': form.favoriteMenuItem.$valid,
+            }">
+            <label class="control-label">Favorite menu item</label>
+            <input
+                type="text"
+                class="form-control"
+                name="favoriteMenuItem"
+                ng-model="user.favoriteMenuItem"
+                ng-model-options="{ debounce: 500 }"
+                favorite-menu-item
+                required>
+            <span ng-show="form.favoriteMenuItem.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span ng-show="form.favoriteMenuItem.$error.favoriteMenuItem" class="help-block">No such menu number exists</span>
+            <span ng-show="form.favoriteMenuItem.$invalid && (form.favoriteMenuItem.$touched || form.favoriteMenuItem.$error.favoriteMenuItem)" class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+        <div class="form-group">
+            <button type="reset" class="btn btn-danger" ng-click="$ctrl.reset(form)">Reset</button>
+            <button type="submit" class="btn btn-default" ng-disabled="form.$invalid || form.$pending" ng-click="$ctrl.signup(user)">Sign Up</button>
+        </div>
+        <div ng-if="$ctrl.signedUp" class="alert alert-success">
+            Your information has been saved!
+        </div>
+    </form>
+</div>
